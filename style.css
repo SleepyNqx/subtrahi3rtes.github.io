@@ -1,1 +1,40 @@
-
+  :root{
+    --bg:#071226;
+    --panel:#081827;
+    --muted:rgba(230,238,246,0.65);
+    --accent:#41d3ff;
+    --glow:0 0 18px rgba(65,211,255,0.12), 0 0 6px rgba(65,211,255,0.08);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#02060a, var(--bg));color:#e6eef6;min-height:100vh}
+  .app{display:flex;gap:12px;padding:16px}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--glow)}
+  .sidebar{width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:12px}
+  .sheets{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}
+  .sheet-btn{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);cursor:pointer;background:transparent;transition:transform .15s, box-shadow .15s}
+  .sheet-btn:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.6), 0 0 30px rgba(65,211,255,0.08);border-color:rgba(65,211,255,0.14)}
+  .sheet-btn.active{background:linear-gradient(90deg, rgba(65,211,255,0.06), rgba(65,211,255,0.02));box-shadow:0 0 20px rgba(65,211,255,0.08)}
+  .controls{display:flex;flex-wrap:wrap;gap:8px}
+  button{background:linear-gradient(180deg,#0f2a35,#071a20);border:none;padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer;transition:transform .12s,box-shadow .12s}
+  button:hover{transform:translateY(-3px);box-shadow:var(--glow)}
+  button.danger{background:linear-gradient(180deg,#3b1a1a,#2a0f0f);color:#ffd6d6}
+  .main{flex:1;display:flex;flex-direction:column;gap:12px}
+  .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .search{margin-left:auto}
+  .grid-wrap{overflow:auto;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,0.02)}
+  table.sheet{border-collapse:collapse;width:max-content;min-width:100%}
+  table.sheet td, table.sheet th{border:1px solid rgba(255,255,255,0.03);min-width:120px;padding:8px}
+  table.sheet th{background:rgba(255,255,255,0.02);position:sticky;top:0;z-index:2}
+  td[contenteditable]{outline:none;min-width:120px;transition:background .12s, box-shadow .12s}
+  td[contenteditable]:hover{background:rgba(65,211,255,0.03);box-shadow:0 4px 18px rgba(65,211,255,0.04)}
+  .meta-row{display:flex;gap:8px;align-items:center}
+  .input, textarea, select{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px;border-radius:8px}
+  .token-field{width:100%}
+  .muted{color:var(--muted);font-size:13px}
+  .small{font-size:13px;padding:6px 8px}
+  .glow-pill{padding:6px 8px;border-radius:999px;border:1px solid rgba(65,211,255,0.12);box-shadow:0 6px 30px rgba(65,211,255,0.03)}
+  .hint{font-size:12px;color:rgba(230,238,246,0.55)}
+  a.link{color:var(--accent);text-decoration:none}
+  .status{font-size:13px}
+  @media (max-width:900px){.app{flex-direction:column}.sidebar{width:100%}}
