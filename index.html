@@ -7,99 +7,45 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div style="padding:14px 18px;">
-  <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px">
-    <h2 style="margin:0">Local Excel — GitHub Save</h2>
-    <div class="muted">Save sheets directly to a GitHub repo</div>
-  </div>
-
-  <div class="app">
-    <div class="sidebar card">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
-          <strong>Sheets</strong>
-          <div class="status muted" id="saveStatus">Autosaved (local)</div>
-        </div>
-        <div class="sheets" id="sheets"></div>
+<div class='app'>
+  <div class='sidebar'>
+    <div style='display:flex;align-items:center;justify-content:space-between'>
+      <strong>Sheets</strong>
+      <small class='muted' id='status'>Saved</small>
+    </div>
+    <div class='sheets' id='sheets'></div>
+    <div class='controls'>
+      <button id='newSheet'>New</button>
+      <button id='renameSheet'>Rename</button>
+      <button id='deleteSheet' class='danger'>Delete</button>
+      <button id='clearSheet'>Clear</button>
+    </div>
+    <div style='margin-top:12px'>
+      <div class='muted'>Storage</div>
+      <div style='display:flex;gap:8px;margin-top:8px'>
+        <button id='exportAll'>Export JSON</button>
+        <button id='importAll'>Import JSON</button>
       </div>
-
-      <div class="controls" style="margin-top:8px">
-        <button id="newSheet">New</button>
-        <button id="renameSheet">Rename</button>
-        <button id="deleteSheet" class="danger">Delete</button>
-        <button id="clearSheet">Clear</button>
-      </div>
-
-      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
-
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div class="muted">GitHub save</div>
-        <input id="ghToken" class="input token-field" placeholder="Personal access token (paste here, not stored)" />
-        <input id="ghOwner" class="input" placeholder="GitHub owner or org (e.g. you)" />
-        <input id="ghRepo" class="input" placeholder="Repo name (e.g. local-excel)" />
-        <input id="ghPath" class="input" placeholder="Path prefix (e.g. sheets/) or leave blank" />
-        <div style="display:flex;gap:8px">
-          <button id="saveToGH">Save active sheet to GitHub</button>
-          <button id="saveAllToGH">Save all sheets</button>
-        </div>
-        <div class="hint">Files saved as JSON at <code>PATH/SheetName.json</code>. Existing files will be updated.</div>
-      </div>
-
-      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
-
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div class="muted">Local export / import</div>
-        <div style="display:flex;gap:8px">
-          <button id="exportAll">Export JSON</button>
-          <button id="importAll">Import JSON</button>
-        </div>
-        <div style="display:flex;gap:8px;margin-top:6px">
-          <button id="exportCSV">Export CSV</button>
-          <label for="importCSV"><button id="importCSVLabel">Import CSV</button></label>
-          <input id="importCSV" type="file" accept="text/csv" style="display:none"/>
-        </div>
+      <div style='display:flex;gap:8px;margin-top:8px'>
+        <button id='exportCSV'>Export CSV</button>
+        <label for='importCSV' style='display:inline-block'><button id='importCSVLabel'>Import CSV</button></label>
+        <input id='importCSV' type='file' accept='text/csv' />
       </div>
     </div>
-
-    <div class="main">
-      <div class="card">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div style="flex:1">
-            <div style="display:flex;gap:8px;align-items:center">
-              <div id="sheetTitle" style="font-weight:600">Sheet 1</div>
-              <div class="glow-pill muted" id="sheetPriority">Priority: Normal</div>
-              <div class="hint" style="margin-left:8px">Comments: <span id="sheetComments" class="muted hint">—</span></div>
-            </div>
-            <div class="muted" style="margin-top:6px">Edit cells. Changes auto-save locally. Use GitHub to persist to repo.</div>
-          </div>
-
-          <div style="display:flex;gap:8px;align-items:center">
-            <input id="findInput" class="input" placeholder="Find (press Enter)" />
-            <div>
-              <button id="addRow">Add row</button>
-              <button id="addCol">Add col</button>
-              <button id="delRow">Del row</button>
-              <button id="delCol">Del col</button>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-          <div class="muted">Priority</div>
-          <select id="prioritySelect" class="input small">
-            <option value="Low">Low</option>
-            <option value="Normal" selected>Normal</option>
-            <option value="High">High</option>
-            <option value="Critical">Critical</option>
-          </select>
-          <div class="muted">Comments</div>
-          <input id="commentsInput" class="input" placeholder="Short note for this sheet" style="flex:1"/>
-        </div>
+  </div>
+  <div class='main'>
+    <div class='toolbar'>
+      <button id='addRow'>Add row</button>
+      <button id='addCol'>Add col</button>
+      <button id='delRow'>Del row</button>
+      <button id='delCol'>Del col</button>
+      <div class='search'>
+        <input id='findInput' placeholder='Find (press Enter)' class='small' />
       </div>
-
-      <div class="grid-wrap card" id="gridWrap">
-        <table class="sheet" id="sheetTable"></table>
-      </div>
+      <div style='margin-left:8px'>Autosave: <select id='autosave'><option value='on'>on</option><option value='off'>off</option></select></div>
+    </div>
+    <div class='grid-wrap'>
+      <table class='sheet' id='sheetTable'></table>
     </div>
   </div>
 </div>
