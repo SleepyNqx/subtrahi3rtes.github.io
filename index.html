@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>cuh</title>
+<title>MinusOS</title>
 <style>
 
 body {
-margin: 0;
-padding: 0;
-height: 100vh;
-width: 100vw;
-font-family: arial;
-background: url(https://cdn.wallpapersafari.com/35/10/XYPfm9.jpg);
-background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: arial;
+  background: url(https://cdn.wallpapersafari.com/35/10/XYPfm9.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  cursor: url("https://images.icon-icons.com/1875/PNG/512/cursor_120340.png");
 }
 
 
@@ -69,6 +72,8 @@ transition: width 0.2s ease, height 0.2s ease, background 0.4s ease;
   filter: drop-shadow(0px 0px 0px #e3e3e3);
 } 
 
+
+
 .txt4 {
   color: #e3e3e3;
   font-size: 55px;
@@ -90,6 +95,19 @@ transition: width 0.2s ease, height 0.2s ease, background 0.4s ease;
     drop-shadow(0px 0px 3px white);
 }
 
+.txt5 {
+  color: #e3e3e3;
+  font-size: 15px;
+  filter: drop-shadow(0px 0px 0px #e3e3e3);
+  transition: font-size 0.5s ease, color 0.2s ease, filter 0.2s ease;
+} 
+
+.txt5:hover {
+  color: white;
+  font-size: 20px;
+  filter: 
+    drop-shadow(0px 0px 3px white);
+}
 
 .offset1 {
 	position: relative;
@@ -104,10 +122,119 @@ transition: width 0.2s ease, height 0.2s ease, background 0.4s ease;
 	top: 30px;
 }
 
+.offset3 {
+	position: relative;
+	top: 110px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.bgBlur {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+#country {
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+}
+
+.badge {
+
+  color: rgba(255,255,255,0.6);
+  border-radius: 3px;
+  background: linear-gradient(90deg, #a600ff, #d078ff, #f9b5ff);
+  display: inline-block;
+  margin: 2;
+  
+}
+
+
+.badge1 {
+
+  color: rgba(255,255,255,0.6);
+  border-radius: 3px;
+  background: linear-gradient(90deg,rgba(255, 179, 0, 1) 0%, rgba(76, 9, 119, 1) 100%);
+  display: inline-block;
+  margin: 2;
+  
+}
+
+.badge2 {
+  color: rgba(255,255,255,0.6);
+  border-radius: 3px;
+  background-image: url(https://78.media.tumblr.com/297384c9f2e4efff9e387bb0c1e5bf4a/tumblr_p134jc0mwn1wkk07yo1_400.gif);
+  background-size: 170px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  margin: 2;
+  filter: 
+    drop-shadow(0px 0px 3px black);
+}
+
+
+.badge3 {
+  color: rgba(255,255,255,0.6);
+  border-radius: 3px;
+  background-image: url(https://64.media.tumblr.com/dc6e3390bf44999c02d0b691e64905d7/ce1f0308385590d8-58/s540x810/ccc4160e1e9ea527d78f3271430c119db057eca9.gif);
+  background-size: 50px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  margin: 2;
+  filter: 
+    drop-shadow(0px 0px 3px black);
+}
+
+.transparent {
+
+  color: rgba(255,255,255,0);
+  border-radius: 3px;
+  background:rgba(255,255,255,0);
+  display: inline-block;
+  margin: 2;
+  
+}
+
+::selection {
+  background: rgba(4, 0, 255, 0.5);
+  color: inherit;
+}
+
+
+.txt6 {
+  color: #e3e3e3;
+  font-size: 15px;
+  filter: drop-shadow(1px 1px 1px #000000);
+} 
+
+
+::title {
+
+ border-radius: 5px;
+
+}
 
 </style>
 </head>
 <body>
+
+<div>
+
+
+<p class="txt6">Credits:
+<span class="txt5" title="Creator" >Subtrahi3rtes </span>
+<span class="badge"><img url(https://minecraft.wiki/images/Netherite_Sword_JE2_BE2.png?8e866)> PVPer.</span>
+<span class="badge1"> Coder.</span>
+<span class="badge2"> Cool Random Ass Badge</span>
+<span class="badge3"> Creator</span>
+</p>
+</div>
+
+
 <div style="text-align:center;position:relative;top:200px;">
 
 <button class="WhiteButton pos1"><span class="txt">B</span><span class="txt">I</span><span class="txt">N</span><span class="txt"> V</span><span class="txt">3</span></button>
@@ -116,20 +243,35 @@ transition: width 0.2s ease, height 0.2s ease, background 0.4s ease;
 
 </div>
 <div>
-<p id="country" class="txt3 offset2">country</p>
+<p id="country" class="txt6 offset2">country</p>
 </div>
 <p id="time" class="txt4 offset1">country</p>
+<div class="offset3">
+<div class="bgBlur">
+<p class="txt6"> This is a long text. I need it to be Very long. yes. logn. veryyyyyyyyyyyyyyyyyyyyyyyyyyyy<br>log</p>
+</div>
+</div>
 <script>
 fetch("https://ipwho.is/")
   .then(res => res.json())
   .then(data => {
-    document.getElementById("country").textContent =
-      "You’re in " + data.country;
+    const country = data.country;
+    const code = data.country_code; // like "DE", "US", etc.
+
+    // turn code into flag emoji
+    const flag = code
+      .toUpperCase()
+      .replace(/./g, c =>
+        String.fromCodePoint(127397 + c.charCodeAt())
+      );
+
+    document.getElementById("country").textContent = `${flag} ${country}`;
   })
   .catch(() => {
     document.getElementById("country").textContent =
       "Could not detect country.";
   });
+
   
 function startTime() {
   const today = new Date();
