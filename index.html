@@ -218,6 +218,83 @@ transition: width 0.2s ease, height 0.2s ease, background 0.4s ease;
 
 }
 
+*/
+
+@media (max-width: 700px) {
+
+  body {
+    background-attachment: scroll; /* fixed breaks on mobile */
+    background-size: cover;
+  }
+
+  /* Center the three buttons and remove huge offsets */
+  .pos1, .pos2 {
+    left: 0 !important;
+    right: 0 !important;
+    position: static !important;
+    margin: 10px auto !important;
+    display: block;
+  }
+
+  /* Reduce button scaling on mobile */
+  .WhiteButton {
+    transform: scale(1.2);
+    width: 60vw;
+    max-width: 240px;
+    height: 40px;
+  }
+
+  /* Reduce hover growth so it doesn’t break layout */
+  .WhiteButton:hover {
+    width: 62vw;
+    max-width: 250px;
+  }
+
+  /* Fix main clock text sizing */
+  .txt4 {
+    font-size: clamp(25px, 10vw, 45px);
+  }
+
+  /* Title text */
+  .txt2 {
+    font-size: clamp(18px, 6vw, 32px);
+  }
+
+  /* Generic text */
+  .txt, .txt5, .txt6, .txt3 {
+    font-size: clamp(12px, 3.5vw, 18px);
+  }
+
+  /* Lower the giant vertical spacing to fit screens */
+  .offset1 {
+    top: -10px !important;
+  }
+
+  .offset2 {
+    top: 10px !important;
+  }
+
+  .offset3 {
+    top: 40px !important;
+  }
+
+  /* Make blur box fit phone screens */
+  .bgBlur {
+    max-width: 90vw;
+    padding: 10px;
+  }
+
+  /* Emojis scale better this way */
+  #country {
+    font-size: clamp(14px, 4vw, 22px);
+  }
+
+  /* Remove cursor for phones */
+  body {
+    cursor: auto !important;
+  }
+}
+
 </style>
 </head>
 <body>
