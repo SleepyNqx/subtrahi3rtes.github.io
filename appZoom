@@ -1,0 +1,5 @@
+.content__5e434 {
+    transform: scale(0.95);
+    border-radius: var(--border-radius);
+    border: 1px solid #ffffff34;
+}
