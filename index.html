@@ -1,371 +1,85 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>MinusOS</title>
-<style>
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Github, MessageCircle, ExternalLink } from "lucide-react";
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  font-family: arial;
-  background: url(https://cdn.wallpapersafari.com/35/10/XYPfm9.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  cursor: url("https://images.icon-icons.com/1875/PNG/512/cursor_120340.png");
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#0b0f1a] via-[#0e1325] to-[#05070d] flex items-center justify-center p-6">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full max-w-4xl"
+      >
+        <Card className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 blur-3xl" />
+          
+          <CardContent className="relative p-10 grid gap-10">
+            <div className="text-center space-y-4">
+              <h1 className="text-5xl font-bold tracking-tight text-white">
+                nox
+              </h1>
+              <p className="text-lg text-white/70 max-w-xl mx-auto">
+                Creative developer focused on clean visuals, subtle motion, and glassy UI experiences.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <GlowCard title="Projects" desc="Experimental web, shaders, Minecraft systems." />
+              <GlowCard title="Design" desc="Glassy UI, glow aesthetics, motion polish." />
+              <GlowCard title="Code" desc="JS, React, CSS, game modding." />
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 pt-4">
+              <Button
+                asChild
+                className="rounded-xl bg-white/10 backdrop-blur hover:bg-white/20 text-white border border-white/20"
+              >
+                <a href="https://discord.gg/YOUR_DISCORD" target="_blank">
+                  <MessageCircle className="mr-2 h-5 w-5" /> Discord
+                </a>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-xl border-white/20 text-white hover:bg-white/10"
+              >
+                <a href="https://github.com" target="_blank">
+                  <Github className="mr-2 h-5 w-5" /> GitHub
+                </a>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-xl border-white/20 text-white hover:bg-white/10"
+              >
+                <a href="#" target="_blank">
+                  <ExternalLink className="mr-2 h-5 w-5" /> More
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </div>
+  );
 }
 
-
-
-.WhiteButton {
-
-transform: scale(1.9);
-background-size: 2000px;
-width: 100px;
-height: 30px;
-backdrop-filter: blur(5px)
-                 brightness(111%)
-                 contrast(1.5);
-background: transparent;
-border-radius: 200px;
-border-color: transparent;
-cursor: pointer;
-transition: width 0.2s ease, height 0.2s ease, background 0.4s ease;
+function GlowCard({ title, desc }) {
+  return (
+    <motion.div
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="relative"
+    >
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-400/30 to-purple-400/30 blur-xl opacity-0 hover:opacity-100 transition" />
+      <div className="relative rounded-2xl p-6 bg-white/5 backdrop-blur border border-white/10">
+        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+        <p className="text-white/70 text-sm">{desc}</p>
+      </div>
+    </motion.div>
+  );
 }
-
-.WhiteButton:hover {
-  width: 110px;
-  height: 30px;
-  background: transparent;
-} 
-.pos1 {
- position:relative;
- left:310px;
-}
-
-.pos2 {
- position:relative;
- right:310px;
-}
-
-.txt {
-  color: #e3e3e3;
-  font-size: 15px;
-  filter: drop-shadow(0px 0px 0px #e3e3e3);
-  transition: font-size 0.5s ease, color 0.2s ease, filter 0.2s ease;
-} 
-
-.txt:hover {
-  color: white;
-  font-size: 20px;
-  filter: 
-    drop-shadow(0px 0px 3px white);
-}
-
-.txt3 {
-  color: #e3e3e3;
-  font-size: 15px;
-  filter: drop-shadow(0px 0px 0px #e3e3e3);
-} 
-
-
-
-.txt4 {
-  color: #e3e3e3;
-  font-size: 55px;
-  filter: drop-shadow(2px 2px 0px #000000)
-          drop-shadow(0px 0px 10px #ffffff);
-} 
-
-.txt2 {
-  color: #e3e3e3;
-  font-size: 35px;
-  filter: drop-shadow(0px 0px 0px #e3e3e3);
-  transition: font-size 0.5s ease, color 0.2s ease, filter 0.2s ease;
-} 
-
-.txt2:hover {
-  color: white;
-  font-size: 45px;
-  filter: 
-    drop-shadow(0px 0px 3px white);
-}
-
-.txt5 {
-  color: #e3e3e3;
-  font-size: 15px;
-  filter: drop-shadow(0px 0px 0px #e3e3e3);
-  transition: font-size 0.5s ease, color 0.2s ease, filter 0.2s ease;
-} 
-
-.txt5:hover {
-  color: white;
-  font-size: 20px;
-  filter: 
-    drop-shadow(0px 0px 3px white);
-}
-
-.offset1 {
-	position: relative;
-	top: -30px;
-	margin: 0 auto;
-    display: block;
-    text-align: center;
-}
-
-.offset2 {
-	position: relative;
-	top: 30px;
-}
-
-.offset3 {
-	position: relative;
-	top: 110px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.bgBlur {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  display: inline-block;
-  margin: 0 auto;
-  border-radius: 15px;
-}
-
-#country {
-  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
-}
-
-.badge {
-
-  color: rgba(255,255,255,0.6);
-  border-radius: 3px;
-  background: linear-gradient(90deg, #a600ff, #d078ff, #f9b5ff);
-  display: inline-block;
-  margin: 2;
-  
-}
-
-
-.badge1 {
-
-  color: rgba(255,255,255,0.6);
-  border-radius: 3px;
-  background: linear-gradient(90deg,rgba(255, 179, 0, 1) 0%, rgba(76, 9, 119, 1) 100%);
-  display: inline-block;
-  margin: 2;
-  
-}
-
-.badge2 {
-  color: rgba(255,255,255,0.6);
-  border-radius: 3px;
-  background-image: url(https://78.media.tumblr.com/297384c9f2e4efff9e387bb0c1e5bf4a/tumblr_p134jc0mwn1wkk07yo1_400.gif);
-  background-size: 170px 25px;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: inline-block;
-  margin: 2;
-  filter: 
-    drop-shadow(0px 0px 3px black);
-}
-
-
-.badge3 {
-  color: rgba(255,255,255,0.6);
-  border-radius: 3px;
-  background-image: url(https://64.media.tumblr.com/dc6e3390bf44999c02d0b691e64905d7/ce1f0308385590d8-58/s540x810/ccc4160e1e9ea527d78f3271430c119db057eca9.gif);
-  background-size: 50px 25px;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: inline-block;
-  margin: 2;
-  filter: 
-    drop-shadow(0px 0px 3px black);
-}
-
-.transparent {
-
-  color: rgba(255,255,255,0);
-  border-radius: 3px;
-  background:rgba(255,255,255,0);
-  display: inline-block;
-  margin: 2;
-  
-}
-
-::selection {
-  background: rgba(4, 0, 255, 0.5);
-  color: inherit;
-}
-
-
-.txt6 {
-  color: #e3e3e3;
-  font-size: 15px;
-  filter: drop-shadow(1px 1px 1px #000000);
-} 
-
-
-::title {
-
- border-radius: 5px;
-
-}
-
-*/
-
-@media (max-width: 700px) {
-
-  body {
-    background-attachment: scroll; /* fixed breaks on mobile */
-    background-size: cover;
-  }
-
-  /* Center the three buttons and remove huge offsets */
-  .pos1, .pos2 {
-    left: 0 !important;
-    right: 0 !important;
-    position: static !important;
-    margin: 10px auto !important;
-    display: block;
-  }
-
-  /* Reduce button scaling on mobile */
-  .WhiteButton {
-    transform: scale(1.2);
-    width: 60vw;
-    max-width: 240px;
-    height: 40px;
-  }
-
-  /* Reduce hover growth so it doesn’t break layout */
-  .WhiteButton:hover {
-    width: 62vw;
-    max-width: 250px;
-  }
-
-  /* Fix main clock text sizing */
-  .txt4 {
-    font-size: clamp(25px, 10vw, 45px);
-  }
-
-  /* Title text */
-  .txt2 {
-    font-size: clamp(18px, 6vw, 32px);
-  }
-
-  /* Generic text */
-  .txt, .txt5, .txt6, .txt3 {
-    font-size: clamp(12px, 3.5vw, 18px);
-  }
-
-  /* Lower the giant vertical spacing to fit screens */
-  .offset1 {
-    top: -10px !important;
-  }
-
-  .offset2 {
-    top: 10px !important;
-  }
-
-  .offset3 {
-    top: 40px !important;
-  }
-
-  /* Make blur box fit phone screens */
-  .bgBlur {
-    max-width: 90vw;
-    padding: 10px;
-  }
-
-  /* Emojis scale better this way */
-  #country {
-    font-size: clamp(14px, 4vw, 22px);
-  }
-
-  /* Remove cursor for phones */
-  body {
-    cursor: auto !important;
-  }
-}
-
-</style>
-</head>
-<body>
-
-<div>
-
-
-<p class="txt6">Credits:
-<span class="txt5" title="Creator" >Subtrahi3rtes </span>
-<span class="badge"><img url(https://minecraft.wiki/images/Netherite_Sword_JE2_BE2.png?8e866)> PVPer.</span>
-<span class="badge1"> Coder.</span>
-<span class="badge2"> Cool Random Ass Badge</span>
-<span class="badge3"> Creator</span>
-</p>
-</div>
-
-
-<div style="text-align:center;position:relative;top:200px;">
-
-<button class="WhiteButton pos1"><span class="txt">B</span><span class="txt">I</span><span class="txt">N</span><span class="txt"> V</span><span class="txt">3</span></button>
-<button class="WhiteButton"><span class="txt">n</span><span class="txt">o</span><span class="txt">w</span></button>
-<button class="WhiteButton pos2">Coo?</button>
-
-</div>
-<div>
-<p id="country" class="txt6 offset2">country</p>
-</div>
-<p id="time" class="txt4 offset1">country</p>
-<div class="offset3">
-<div class="bgBlur">
-<p class="txt6"> This is a long text. I need it to be Very long. yes. logn. veryyyyyyyyyyyyyyyyyyyyyyyyyyyy<br>log</p>
-</div>
-</div>
-<script>
-fetch("https://ipwho.is/")
-  .then(res => res.json())
-  .then(data => {
-    const country = data.country;
-    const code = data.country_code; // like "DE", "US", etc.
-
-    // turn code into flag emoji
-    const flag = code
-      .toUpperCase()
-      .replace(/./g, c =>
-        String.fromCodePoint(127397 + c.charCodeAt())
-      );
-
-    document.getElementById("country").textContent = `${flag} ${country}`;
-  })
-  .catch(() => {
-    document.getElementById("country").textContent =
-      "Could not detect country.";
-  });
-
-  
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('time').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
-
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-startTime();
-</script>
-</body>
-</html>
