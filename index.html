@@ -3,200 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nox — Portfolio</title>
+  <title>Gleamful Web</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-1: #0b0f1a;
-      --bg-2: #0e1325;
-      --glass: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.15);
-      --text: rgba(255, 255, 255, 0.9);
-      --muted: rgba(255, 255, 255, 0.65);
+      --accent-color: #bc88ff;
+      --bg-image: url('https://cdn.fondecranvip.com/2025/06/L0xF5plZ-fond-decran-Fille-anime-27.webp');
+      --radius: 14px;
+      --blur: blur(18px);
+      --blur-soft: blur(6px);
+      --gradient-main: linear-gradient(90deg, #8457ff, #ffffff, #8457ff);
+      --gradient-rainbow: linear-gradient(45deg, red, orange, yellow, #00ff00, #0000ff, #9500ff, #ff00ff, red);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at top, #12172e, var(--bg-1)),
-                  linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      font-family: "Google Sans Code", monospace;
+      color: #eaeaea;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        var(--bg-image) center / cover no-repeat fixed;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    /* Layout */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: var(--blur);
+      background: rgba(0,0,0,0.35);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--text);
-      overflow: hidden;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
     }
 
-    /* Glow blobs */
-    .blob {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      background: linear-gradient(135deg, #4fd1ff, #b86bff);
-      filter: blur(120px);
-      opacity: 0.35;
-      z-index: 0;
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      background: var(--gradient-main);
+      background-size: 200% 200%;
+      animation: gradient-animation 2s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .blob.one { top: -120px; left: -120px; }
-    .blob.two { bottom: -140px; right: -140px; }
+    nav a {
+      color: #ccc;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: white;
+      text-shadow: 0 0 8px var(--accent-color);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Cards */
 
     .card {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 900px;
-      background: var(--glass);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 48px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: var(--blur);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: 0.35s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 48px;
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 80px rgba(188,136,255,0.25);
     }
 
-    .header h1 {
-      font-size: 3.2rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      background: var(--gradient-rainbow);
+      background-size: 200% 200%;
+      animation: gradient-animation 3s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .header p {
-      max-width: 520px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.1rem;
+    .card p {
+      color: #d0d0d0;
+      line-height: 1.6;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .glass-box {
-      position: relative;
-      padding: 24px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glass-box::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(135deg, rgba(79, 209, 255, 0.5), rgba(184, 107, 255, 0.5));
-      filter: blur(24px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    .glass-box:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    }
-
-    .glass-box:hover::before {
-      opacity: 1;
-    }
-
-    .glass-box h3 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .glass-box p {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+    /* Buttons */
 
     .btn {
-      padding: 14px 22px;
-      border-radius: 14px;
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #bfb0ff, #e1bdff);
+      color: #1a1a1a;
       text-decoration: none;
-      color: var(--text);
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(10px);
-      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      font-weight: 600;
+      transition: 0.3s ease;
     }
 
     .btn:hover {
-      background: rgba(255, 255, 255, 0.14);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transform: scale(1.15);
+      box-shadow: 0 0 25px rgba(255,255,255,0.4);
     }
+
+    /* Footer */
 
     footer {
-      margin-top: 32px;
       text-align: center;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.4);
+      padding: 2rem;
+      color: #aaa;
+      backdrop-filter: var(--blur-soft);
+      background: rgba(0,0,0,0.35);
     }
 
-    @media (max-width: 600px) {
-      .card { padding: 32px; }
-      .header h1 { font-size: 2.4rem; }
+    ::selection {
+      color: #e6dbff;
+      background: rgba(188,136,255,0.35);
     }
   </style>
 </head>
 <body>
-  <div class="blob one"></div>
-  <div class="blob two"></div>
 
-  <main class="card">
-    <section class="header">
-      <h1>nox</h1>
-      <p>Creative developer focused on glassy UI, glow aesthetics, and smooth interactive experiences.</p>
-    </section>
-
-    <section class="grid">
-      <div class="glass-box">
-        <h3>Projects</h3>
-        <p>Discord Themes, Minecraft stuff...</p>
+  <header>
+    <nav>
+      <div class="logo">Gleamful</div>
+      <div>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
       </div>
-      <div class="glass-box">
-        <h3>Design</h3>
-        <p>Frosted glass, neon glow, minimal motion.</p>
-      </div>
-      <div class="glass-box">
-        <h3>Code</h3>
-        <p>HTML, CSS.</p>
-      </div>
-    </section>
+    </nav>
+  </header>
 
-    <section class="links">
-      <a class="btn" href="https://discord.gg/YOUR_DISCORD" target="_blank">Discord</a>
-      <a class="btn" href="https://github.com" target="_blank">GitHub</a>
-      <a class="btn" href="#">More</a>
-    </section>
+  <main>
+    <div class="card">
+      <h2>Glowy UI</h2>
+      <p>A dark, glassy interface inspired by Gleamful DEV. Heavy blur, gradients, and soft motion everywhere.</p>
+      <a class="btn" href="#">Explore</a>
+    </div>
 
-    <footer>
-      © 2025 nox — all rights reserved
-    </footer>
+    <div class="card">
+      <h2>Animated Gradients</h2>
+      <p>Text and accents use animated gradients similar to Discord theme highlights and badges.</p>
+      <a class="btn" href="#">See More</a>
+    </div>
+
+    <div class="card">
+      <h2>Glassmorphism</h2>
+      <p>Backdrop filters, transparency, and glow-based hover effects create a futuristic aesthetic.</p>
+      <a class="btn" href="#">Details</a>
+    </div>
   </main>
+
+  <footer>
+    © 2026 • Gleamful‑style Web Theme
+  </footer>
+
 </body>
 </html>
