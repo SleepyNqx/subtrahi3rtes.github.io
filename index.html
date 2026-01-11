@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gleamful Web</title>
+  <title>Gleamful DEV — Discord Theme</title>
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,23 +15,22 @@
       --accent-color: #bc88ff;
       --bg-image: url('https://cdn.fondecranvip.com/2025/06/L0xF5plZ-fond-decran-Fille-anime-27.webp');
       --radius: 14px;
-      --blur: blur(18px);
+      --blur-main: blur(18px);
       --blur-soft: blur(6px);
       --gradient-main: linear-gradient(90deg, #8457ff, #ffffff, #8457ff);
+      --gradient-nitro: linear-gradient(90deg, #ff00aa, #fca7ff, #ff00aa);
       --gradient-rainbow: linear-gradient(45deg, red, orange, yellow, #00ff00, #0000ff, #9500ff, #ff00ff, red);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      min-height: 100vh;
       font-family: "Google Sans Code", monospace;
       color: #eaeaea;
+      min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
         var(--bg-image) center / cover no-repeat fixed;
     }
 
@@ -40,29 +39,28 @@
       100% { background-position: 200% 50%; }
     }
 
-    /* Layout */
-
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: var(--blur);
       background: rgba(0,0,0,0.35);
+      backdrop-filter: var(--blur-main);
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     nav {
       max-width: 1200px;
       margin: auto;
+      padding: 1rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.5rem;
     }
 
     .logo {
+      font-size: 1.4rem;
       font-weight: 800;
-      font-size: 1.2rem;
       background: var(--gradient-main);
       background-size: 200% 200%;
       animation: gradient-animation 2s linear infinite;
@@ -71,9 +69,9 @@
     }
 
     nav a {
-      color: #ccc;
       margin-left: 1.5rem;
       text-decoration: none;
+      color: #ccc;
       transition: 0.3s ease;
     }
 
@@ -82,7 +80,64 @@
       text-shadow: 0 0 8px var(--accent-color);
     }
 
-    main {
+    /* Hero */
+    .hero {
+      max-width: 900px;
+      margin: 6rem auto 4rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      background: var(--gradient-nitro);
+      background-size: 200% 200%;
+      animation: gradient-animation 2s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #d0d0d0;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.35s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #bfb0ff, #e1bdff);
+      color: #1a1a1a;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      backdrop-filter: var(--blur-soft);
+    }
+
+    .btn:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 30px rgba(188,136,255,0.4);
+    }
+
+    /* Sections */
+    section {
       max-width: 1200px;
       margin: auto;
       padding: 4rem 1.5rem;
@@ -91,110 +146,103 @@
       gap: 2rem;
     }
 
-    /* Cards */
-
     .card {
       background: rgba(0,0,0,0.35);
-      backdrop-filter: var(--blur);
+      backdrop-filter: var(--blur-main);
       border-radius: var(--radius);
       padding: 2rem;
-      transition: 0.35s ease;
       border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.4s ease;
       box-shadow: 0 0 40px rgba(0,0,0,0.4);
     }
 
     .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 80px rgba(188,136,255,0.25);
+      transform: scale(1.08);
+      box-shadow: 0 0 80px rgba(188,136,255,0.3);
     }
 
     .card h2 {
       margin-top: 0;
-      font-size: 1.4rem;
-      background: var(--gradient-rainbow);
+      font-size: 1.3rem;
+      background: var(--gradient-main);
       background-size: 200% 200%;
-      animation: gradient-animation 3s linear infinite;
+      animation: gradient-animation 2.5s linear infinite;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .card p {
-      color: #d0d0d0;
+      color: #cfcfcf;
       line-height: 1.6;
     }
 
-    /* Buttons */
-
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #bfb0ff, #e1bdff);
-      color: #1a1a1a;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 25px rgba(255,255,255,0.4);
-    }
-
     /* Footer */
-
     footer {
       text-align: center;
       padding: 2rem;
-      color: #aaa;
-      backdrop-filter: var(--blur-soft);
       background: rgba(0,0,0,0.35);
+      backdrop-filter: var(--blur-soft);
+      color: #aaa;
     }
 
     ::selection {
+      background: rgba(162,80,255,0.35);
       color: #e6dbff;
-      background: rgba(188,136,255,0.35);
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <nav>
-      <div class="logo">Gleamful</div>
-      <div>
-        <a href="#">Home</a>
-        <a href="#">Projects</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <div class="card">
-      <h2>Glowy UI</h2>
-      <p>A dark, glassy interface inspired by Gleamful DEV. Heavy blur, gradients, and soft motion everywhere.</p>
-      <a class="btn" href="#">Explore</a>
+<header>
+  <nav>
+    <div class="logo">Gleamful DEV</div>
+    <div>
+      <a href="#features">Features</a>
+      <a href="#preview">Preview</a>
+      <a href="#install">Install</a>
+      <a href="#links">Links</a>
     </div>
+  </nav>
+</header>
 
-    <div class="card">
-      <h2>Animated Gradients</h2>
-      <p>Text and accents use animated gradients similar to Discord theme highlights and badges.</p>
-      <a class="btn" href="#">See More</a>
-    </div>
+<div class="hero">
+  <h1>Gleamful DEV</h1>
+  <p>
+    A glowy, animated, glassmorphic Discord theme.
+    Inspired by neon gradients, blur-heavy UI, and motion-rich interactions.
+  </p>
 
-    <div class="card">
-      <h2>Glassmorphism</h2>
-      <p>Backdrop filters, transparency, and glow-based hover effects create a futuristic aesthetic.</p>
-      <a class="btn" href="#">Details</a>
-    </div>
-  </main>
+  <div class="hero-buttons">
+    <a class="btn btn-primary" href="#">Download Theme</a>
+    <a class="btn btn-secondary" href="#">GitHub</a>
+  </div>
+</div>
 
-  <footer>
-    © 2026 • Gleamful‑style Web Theme
-  </footer>
+<section id="features">
+  <div class="card">
+    <h2>Animated Gradients</h2>
+    <p>Usernames, links, timestamps, badges, and icons use animated gradients exactly like the theme.</p>
+  </div>
+
+  <div class="card">
+    <h2>Glassmorphism</h2>
+    <p>Heavy backdrop blur, transparency, and layered shadows across popouts, modals, and sidebars.</p>
+  </div>
+
+  <div class="card">
+    <h2>Micro‑Animations</h2>
+    <p>Hover scaling, glow pulses, smooth transforms on avatars, emojis, buttons, and media.</p>
+  </div>
+
+  <div class="card">
+    <h2>Fully Customizable</h2>
+    <p>CSS variables for accent color, blur strength, gradients, fonts, and background image.</p>
+  </div>
+</section>
+
+<footer id="links">
+  <p>Made for BetterDiscord / Vencord • Gleamful DEV Theme</p>
+</footer>
 
 </body>
 </html>
