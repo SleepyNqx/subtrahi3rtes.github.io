@@ -1,37 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>subtrahi3rtes</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>subtrahi3rtes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        @font-face {
+            font-family: sfProRegular;
+            src: url("./SFPRODISPLAYREGULAR.OTF");
+        }
+        body {
+            font-family: sfProRegular;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: white;
+            cursor: none;
+        }
 
-    body {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f0f0f;
-      color: white;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
+        .header {
+            z-index: 2;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(3px);
+            top: 0;
+            width: 100%;
+            height: 50px;
+            position: fixed;
 
-    h1 {
-      font-size: 4rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-  </style>
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center; /* Keeps the image centered */
+            text-align: start;
+
+            padding-top: 70px;
+            box-sizing: border-box;
+            flex-direction: column;
+        }
+
+        .img1 {
+            width: 70%;
+            height: auto;
+            display: block;
+            mask-image: linear-gradient(180deg, red, transparent);
+            border-radius: 25px;
+            border: 4px #272727 solid;
+        }
+        
+        .textInformation {
+            font-family: sfProRegular;
+            font-size: 25px;
+            margin-bottom: 20px;
+            background: #6f00ff;
+            border: 1px solid #000000;
+            color: #000000;
+            width: max-content; 
+            align-self: flex-start; 
+            margin-left: 15%; 
+            padding: 8px 16px; 
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 5px 0 #6f00ff;
+            transition: all 0.3s ease;
+        }
+        .textInformation:hover {
+            font-family: sfProRegular;
+            font-size: 25px;
+            margin-bottom: 20px;
+            background: #6f00ff00;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            width: max-content; 
+            align-self: flex-start; 
+            margin-left: 15%; 
+            padding: 8px 16px; 
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 0 50px #ffffff, inset 0 0 50px #ffffff;
+            text-shadow: 0 0 2px #000000;
+        }
+
+        .cursor{
+            width:20px;
+            height:20px;
+            border-radius:50%;
+            background:#ffffff33;
+            backdrop-filter:blur(5px);
+            position:fixed;
+            top:0;
+            left:0;
+
+            pointer-events:none;
+
+            transform:translate(-50%, -50%);
+            z-index:9999;
+
+            transition:
+                width 0.25s ease,
+                height 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .cursor.hover{
+            width:70px;
+            height:70px;
+            background:#ffffff33;
+            backdrop-filter:blur(5px);
+        }
+
+        a{
+            color:white;
+            text-decoration:none;
+        }
+        .imgContainer {
+            display: flex;
+            border-radius: 25px;
+        }
+        .content2 {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center; /* Keeps the image centered */
+            text-align: start;
+
+            padding-top: 70px;
+            box-sizing: border-box;
+            flex-direction: column;
+        }
+        .containerProject {
+            width: 15%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 25px;
+            border: 1px #ffffff solid;
+            transition: all 0.3s ease;
+        }
+        .containerProject:hover {
+            width: 15%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 25px;
+            border: 1px #ffffff solid;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 50px #ffffff;
+        }
+        .ember16x {
+            font-family: sfProRegular;
+            font-size: 25px;
+            background: linear-gradient(90deg, #EF7651, #E25741,#C33131, #9B1F25,#700D1F, #490719, #190109);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent !important;
+            display: block;
+            padding: 10px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        .containerText {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            flex-direction: row;
+        }
+        .badgeModern {
+            font-family: sfProRegular;
+            background: linear-gradient(90deg, white,gray);
+            border: 1px solid #000000;
+            width: max-content; 
+            align-self: flex-start;
+            border-radius: 8px;
+        }
+        .paragraphFix {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+        .textModern {
+            font-size: 15px;
+            background: linear-gradient(90deg, #000000,#2e2e2e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent !important;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>subtrahi3rtes</h1>
+    <div class="cursor"></div>
+
+    <div class="header">
+        <a href="#">subtrahi3rtes</a>
+    </div>
+
+    <div class="content">
+        <a class="textInformation" href="#">Clean Minecraft PVP Packs Inspired by 1.8.9 Pack Styles.</a>
+        <img src="https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/2026-05-28_14.41.09.png" class="img1">
+    </div>
+    <div class="content2">
+        <div class="containerProject">
+            <img src="https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/2026-05-28_14.41.09.png" class="imgContainer">
+            <div class="containerText">
+                <p class="ember16x" href="#">Emberic 16x.</p>
+                <div class="badgeModern" href="#">
+                    <p class="paragraphFix textModern">1.21.*</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    const cursor = document.querySelector(".cursor");
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        currentX += (mouseX - currentX) * 0.12;
+        currentY += (mouseY - currentY) * 0.12;
+
+        cursor.style.left = currentX + "px";
+        cursor.style.top = currentY + "px";
+
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    document.querySelectorAll("a, button").forEach(el => {
+        el.addEventListener("mouseenter", () => {
+            cursor.classList.add("hover");
+        });
+
+        el.addEventListener("mouseleave", () => {
+            cursor.classList.remove("hover");
+        });
+    });
+</script>
 </html>
