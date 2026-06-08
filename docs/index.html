@@ -20,6 +20,7 @@
   }
 
 body {
+    cursor: none;
     font-family: sfProRegular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     padding: 0;
@@ -29,7 +30,7 @@ body {
     min-height: 100vh;
 
     background-color: #0e0e0e;
-    background-image: radial-gradient(circle, #ffffff12 1px, transparent 1px);
+    background-image: radial-gradient(circle, #ffffff34 1px, transparent 1px);  
     background-size: 28px 28px;
 
     animation: moveBackground 20s linear infinite;
@@ -37,7 +38,7 @@ body {
 
 @keyframes moveBackground {
     from {
-        background-position: 0 0;
+        background-position: -280px -280px;
     }
     to {
         background-position: 28px 28px;
@@ -51,7 +52,7 @@ body {
 
   .glowHover:hover {
 
-    box-shadow: #ffffff75 0px 0px 50px;
+    box-shadow: #ffffff49 0px 0px 50px;
     transition: 0.3s ease;
 
   }
@@ -155,6 +156,17 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
+    text-decoration: none;
+
+}
+
+.username:hover {
+    filter: drop-shadow(0px 0px 5px #6eb9ff);
+    background: linear-gradient(0deg, #002658,#6eb9ff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none;
 
 }
 
@@ -173,9 +185,59 @@ body {
 
 }
 
+.biography {
+
+  background: #57575717;
+  backdrop-filter: blur(5px);
+
+}
+
+.padding {
+
+  padding: 7px;
+
+}
+
+.subtrahi3rtes {
+    background: linear-gradient(0deg, #575757,white);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+    /* Joystick base */
+    .cursor-base {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(2px);
+        z-index: 9999;
+    }
+
+    /* Joystick stick */
+    .cursor-stick {
+        position: fixed;
+        width: 16px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.425);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(2px);
+        z-index: 10000;
+        box-shadow: 0 0 20px rgba(255,255,255,.4);
+    }
+
+
 </style>
 
 <body>
+<div class="cursor-base"></div>
+<div class="cursor-stick"></div>
 <div class="gap">
   <div class="center">
     <div class="pfpImage glowHover borderSubtle"></div>
@@ -185,14 +247,56 @@ body {
         <p class="paragraphfix dot">•</p><p class="paragraphfix username center">@w.sub</p>
       </div>
     </div>
-    <div class="biography">
-      <p>Hello!!</p>
+    <div class="gap paragraphfix">
+      <div class="borderSubtle">
+        <div class="paragraphfix biography padding">
+          <span class="subtrahi3rtes">hello! im and im a minecraft pvper and "pack creator".<br>I make (most) of my texture packs i use myself. If you want to use<br>these packs check out my pack page<br>on <a href="discord.subtrahi3rtes.xyz" class="username">packs.subtrahi3rtes.xyz</a></span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 </body>
 <script>
+const base = document.querySelector(".cursor-base");
+const stick = document.querySelector(".cursor-stick");
+
+let mouseX = innerWidth / 2;
+let mouseY = innerHeight / 2;
+
+let baseX = mouseX;
+let baseY = mouseY;
+
+window.addEventListener("mousemove", e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animate() {
+    // smooth base follow
+    baseX += (mouseX - baseX) * 0.05;
+    baseY += (mouseY - baseY) * 0.05;
+
+    const dx = mouseX - baseX;
+    const dy = mouseY - baseY;
+
+    // 🔥 NO clamp — allow full range + slight exaggeration
+    const stretchFactor = 1.3;
+
+    const offsetX = dx * stretchFactor;
+    const offsetY = dy * stretchFactor;
+
+    base.style.left = baseX + "px";
+    base.style.top = baseY + "px";
+
+    stick.style.left = (baseX + offsetX) + "px";
+    stick.style.top = (baseY + offsetY) + "px";
+
+    requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </html>
