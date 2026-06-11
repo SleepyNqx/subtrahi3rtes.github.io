@@ -15,6 +15,7 @@
             --bgColor-title-darker: #1a1d20;
             --bgColor-title-alt: #121214;
             --bg-main: #2c2f33;
+            --bgColor-channelDefault: #20222588;
         }
 
         * {
@@ -105,7 +106,6 @@
         }
 
         .rainbowGradient {
-            font-weight: bold;
             background: linear-gradient(90deg,
                     #ff0000,
                     #ff7f00,
@@ -236,16 +236,80 @@
             transition: all 0.3s ease;
         }
         .windowButtonClose:hover {
-            background: linear-gradient(45deg, #ff4d4d, #ff0000);
+            background:#ff4d4d;
             transition: all 0.3s ease;
         }
         .windowButtonMaximize:hover {
-            background: linear-gradient(45deg, #4d79ff, #0040ff);
+            background:#4d79ff;
             transition: all 0.3s ease;
         }
         .windowButtonMinimize:hover {
-            background: linear-gradient(45deg, #4dff4d, #00ff00);
+            background:#72ff72;
             transition: all 0.3s ease;
+        }
+        .bannerServer {
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            object-fit: cover;
+            padding: 0 0 45px 0;
+        }
+        .bannerServerImage {
+            width: 50%;
+            height: 50%;
+            object-fit: cover;
+        }
+        .bannerServerText {
+            background-size: 400% 400%;
+            background: var(--customServerTextGradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .darkenBG {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .darkenBG:hover {
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .blurBG {
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .blurBG:hover {
+            backdrop-filter: blur(2px);
+            transition: all 0.3s ease;
+        }
+        .bannerServerTextPadding {
+            padding: 0 40px 0 40px;
+        }
+        .borderRight {
+            border-right: var(--bgColor-title-darker) 1px solid;
+        }
+        .borderBottom {
+            border-bottom: var(--bgColor-title-darker) 1px solid;
+        }
+        .channels {
+            height: 200px;
+            background: var(--bgColor-title);
+        }
+        .channelDefault {
+            padding: 4px 4px 4px 4px;
+            background: var(--bgColor-channelDefault);
+            border-radius: 5px;
+            border: 1px solid var(--border-subtle);
+            margin: 0px 5px 0px 0px;
         }
     </style>
 </head>
@@ -261,7 +325,7 @@
             <div class="MiddleText">
                 <img src="./subsHubPicture.jpg" alt="Logo" class="iconMain">
                 <div class="seperatorOne"></div>
-                <span class="textDefault">sub's hub</span>
+                <span class="bannerServerText" style="--customServerTextGradient: linear-gradient(90deg,rgba(81, 75, 92, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(81, 75, 92, 1) 100%)">sub's hub</span>
             </div>
             <div class="windowsButtons">
                 <div class="windowButtonMinimize">
@@ -365,6 +429,22 @@
                         class="serverListImage"
                         style="border: 1px white solid;">
                 </li>
+            </div>
+            <div>
+                <div class="borderRight borderBottom">
+                    <div class="bannerServer borderRight borderBottom" style="background-image: url('./diddy.jpg'); background-size: cover; background-position: center;">
+                        <div class="darkenBG blurBG bannerServerTextPadding">
+                            <img src="./subsHubPicture.jpg" alt="Logo" class="iconMain">
+                            <div class="seperatorOne"></div>
+                            <span class="bannerServerText" style="--customServerTextGradient: linear-gradient(90deg,rgba(81, 75, 92, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(81, 75, 92, 1) 100%)">sub's hub</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="channels">
+                    <div class="starter">
+                        <span class="channelDefault">#</span><span class="textDefault channelDefault">general</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
