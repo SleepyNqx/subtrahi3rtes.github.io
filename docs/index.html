@@ -7,7 +7,8 @@
   <title>Portfolio</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/Titelloses%20419_20260520220743.PNG">
+  <link rel="icon" type="image/x-icon"
+    href="https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/Titelloses%20419_20260520220743.PNG">
 </head>
 <style>
   @font-face {
@@ -19,7 +20,11 @@
     box-sizing: border-box;
   }
 
-body {
+  a {
+    cursor: none;
+  }
+
+  body {
     cursor: none;
     font-family: sfProRegular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
@@ -30,46 +35,44 @@ body {
     min-height: 100vh;
 
     background-color: #0e0e0e;
-    background-image: radial-gradient(circle, #ffffff34 1px, transparent 1px);  
-    background-size: 28px 28px;
+    background-image:
+      linear-gradient(to right, #ffffff15 1px, transparent 1px),
+      linear-gradient(to bottom, #ffffff15 1px, transparent 1px);
+    background-size: 40px 40px;
 
     animation: moveBackground 20s linear infinite;
-}
+  }
 
-@keyframes moveBackground {
-    from {
-        background-position: -280px -280px;
-    }
-    to {
-        background-position: 28px 28px;
-    }
-}
+  ::selection {
+    background: #ffffff50;
+    color: transparent;
+  }
+
+  @keyframes moveBackground {
+    from { background-position: -280px -280px; }
+    to   { background-position: 28px 28px; }
+  }
+
   .borderSubtle {
-
     border: 1px solid #50505050;
-
   }
 
   .glowHover:hover {
-
     box-shadow: #ffffff49 0px 0px 50px;
     transition: 0.3s ease;
-
   }
-  .glowHover {
 
+  .glowHover {
     box-shadow: transparent 0px 0px 0px;
     transition: 0.3s ease;
   }
 
   .glowHoverText:hover {
-
     filter: drop-shadow(0px 0px 10px white);
     transition: 0.3s ease;
-
   }
-  .glowHoverText {
 
+  .glowHoverText {
     filter: drop-shadow(0px 0px 0px transparent);
     transition: 0.3s ease;
   }
@@ -82,221 +85,312 @@ body {
     background-size: cover;
     background-position: center;
     top: 0px;
-    animation: bounce 3s infinite ease-in-out;
-}
+    animation:
+      bounce 3s ease-in-out infinite,
+      pulse 3s ease-in-out infinite;
+  }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
+  @keyframes bounce {
+    0%,  100% { transform: translateY(0); }
+    25%        { transform: translateY(-15px); }
+    50%        { transform: translateY(0); }
+    75%        { transform: translateY(-8px); }
+  }
 
-    25% {
-        transform: translateY(-15px);
-    }
-
-    50% {
-        transform: translateY(0);
-    }
-
-    75% {
-        transform: translateY(-8px);
-    }
-}
-
-.center {
+  .center {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     place-items: center;
     text-align: center;
-
   }
+
   .gap {
-
     padding-top: 50px;
-
   }
-  .fontGradient {
 
-    background: linear-gradient(0deg, #575757,white);
+  .fontGradient {
+    background: linear-gradient(0deg, #575757, white);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
     font-size: 40px;
-
   }
 
   .paragraphfix {
-
     display: block;
     margin-block-start: 0px;
     margin-block-end: 0;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-
   }
 
-.usernameContainer {
+  .usernameContainer {
     padding: 5px;
     backdrop-filter: blur(5px);
     background: #57575767;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
     place-items: center;
     border-radius: 999px;
-}
+  }
 
-.username {
-
-    background: linear-gradient(0deg, #002658,#6eb9ff);
+  .username {
+    background: linear-gradient(0deg, #002658, #6eb9ff);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
     text-decoration: none;
+    transition: 0.8s cubic-bezier(0,.59,.17,1.11);
+  }
 
-}
-
-.username:hover {
+  .username:hover {
+    transition: 0.8s cubic-bezier(0,.59,.17,1.11);
     filter: drop-shadow(0px 0px 5px #6eb9ff);
-    background: linear-gradient(0deg, #002658,#6eb9ff);
+    background: linear-gradient(0deg, #002658, #6eb9ff);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
     text-decoration: none;
+  }
 
-}
+  .row {
+    flex-direction: row;
+  }
 
-.row {
+  .dot {
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #00ff00;
+    filter: drop-shadow(#00ff00 0px 0px 5px);
+  }
 
-  flex-direction: row;
+  .biography {
+    background: #57575717;
+    backdrop-filter: blur(5px);
+  }
 
-}
+  .padding {
+    padding: 7px;
+  }
 
-.dot {
-
-  padding-right: 5px;
-  padding-left: 5px;
-  color: #00ff00;
-  filter: drop-shadow(#00ff00 0px 0px 5px);
-
-}
-
-.biography {
-
-  background: #57575717;
-  backdrop-filter: blur(5px);
-
-}
-
-.padding {
-
-  padding: 7px;
-
-}
-
-.subtrahi3rtes {
-    background: linear-gradient(0deg, #575757,white);
+  .subtrahi3rtes {
+    background: linear-gradient(0deg, #575757, white);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-}
+  }
 
-    /* Joystick base */
-    .cursor-base {
-        position: fixed;
-        width: 40px;
-        height: 40px;
-        border: 2px solid rgba(255,255,255,0.3);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        backdrop-filter: blur(2px);
-        z-index: 9999;
-    }
+  /* Cursor base */
+  .cursor-base {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  }
 
-    /* Joystick stick */
-    .cursor-stick {
-        position: fixed;
-        width: 16px;
-        height: 16px;
-        background: rgba(255, 255, 255, 0.425);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        backdrop-filter: blur(2px);
-        z-index: 10000;
-        box-shadow: 0 0 20px rgba(255,255,255,.4);
-    }
+  .cursor-base.is-hovering {
+    width: 58px;
+    height: 58px;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
 
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 25px 1px #ffffff; }
+    50%  { box-shadow: 0 0 0   0  #ffffff; }
+    100% { box-shadow: 0 0 25px 1px #ffffff; }
+  }
 
+  /* Cursor stick */
+  .cursor-stick {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.425);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+    z-index: 10000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, .4);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+
+  .cursor-stick.is-hovering {
+    width: 16px;
+    height: 16px;
+  }
+
+  .buttonSocialsPacks {
+    background: linear-gradient(90deg, #7437373c, #ffaaaa0c);
+    padding: 10px;
+    border-radius: 2px;
+    backdrop-filter: blur(2px);
+    transition: 0.3s ease;
+  }
+
+  .buttonSocialsPacks:hover {
+    transition: 0.3s ease;
+    border-radius: 50px;
+  }
+
+  .buttonSocialsDiscord {
+    background: linear-gradient(90deg, #3737743c, #aaaaff0c);
+    padding: 10px;
+    border-radius: 2px;
+    backdrop-filter: blur(2px);
+    transition: all 0.3s ease;
+  }
+
+  .buttonSocialsDiscord:hover {
+    transition: all 0.3s ease;
+    border-radius: 50px;
+  }
+
+  .paddingTop  { padding-top: 50px; }
+  .paddingTop3 { padding-top: 10px; }
+
+  .link {
+    text-decoration: none;
+    background: linear-gradient(0deg, #6eadff, #ffffff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 25px;
+    -webkit-background-clip: text;
+  }
+
+  .paddingBigger { padding: 25px; }
+
+  .paddingTop2 {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .stretch { width: 100%; }
+
+  .row2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .start { align-items: start; }
 </style>
 
 <body>
-<div class="cursor-base"></div>
-<div class="cursor-stick"></div>
-<div class="gap">
-  <div class="center">
-    <div class="pfpImage glowHover borderSubtle"></div>
-    <div>
-      <p class="fontGradient glowHoverText paragraphfix">subtrahi3rtes</p>
-      <div class="usernameContainer center borderSubtle glowHover row">
-        <p class="paragraphfix dot">•</p><p class="paragraphfix username center">@w.sub</p>
-      </div>
-    </div>
-    <div class="gap paragraphfix">
-      <div class="borderSubtle">
-        <div class="paragraphfix biography padding">
-          <span class="subtrahi3rtes">hello! im and im a minecraft pvper and "pack creator".<br>I make (most) of my texture packs i use myself. If you want to use<br>these packs check out my pack page<br>on <a href="discord.subtrahi3rtes.xyz" class="username">packs.subtrahi3rtes.xyz</a></span>
+  <div class="cursor-base"></div>
+  <div class="cursor-stick"></div>
+  <div class="gap">
+    <div class="center">
+      <div class="pfpImage glowHover borderSubtle"></div>
+      <div>
+        <p class="fontGradient glowHoverText paragraphfix">subtrahi3rtes</p>
+        <div class="usernameContainer center borderSubtle glowHover row">
+          <p class="paragraphfix dot">•</p>
+          <p class="paragraphfix username center">@w.sub</p>
         </div>
       </div>
+      <div class="gap paragraphfix">
+        <div class="borderSubtle">
+          <div class="paragraphfix biography padding">
+            <span class="subtrahi3rtes">hello! im and im a minecraft pvper and "pack creator".
+              <br>I make (most) of my texture packs i use myself. If you want to use
+              <br>these packs check out my pack page
+              <br>on
+              <a href="https://www.subtrahi3rtes.xyz/packs.html" class="username">packs.subtrahi3rtes.xyz</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="paddingTop paddingTop2">
+        <div class="buttonSocialsPacks glowHover borderSubtle paddingBigger stretch">
+          <div>
+            <a href="https://www.subtrahi3rtes.xyz/pack.html" class="link">Packs</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="paddingTop2 paddingTop3">
+        <div class="buttonSocialsDiscord glowHover borderSubtle paddingBigger stretch row2">
+          <div class="start"></div>
+          <div>
+            <a href="https://www.subtrahi3rtes.xyz/discord.html" class="link">Discord</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-
 </body>
+
 <script>
-const base = document.querySelector(".cursor-base");
-const stick = document.querySelector(".cursor-stick");
+  const base  = document.querySelector(".cursor-base");
+  const stick = document.querySelector(".cursor-stick");
 
-let mouseX = innerWidth / 2;
-let mouseY = innerHeight / 2;
+  let mouseX = innerWidth  / 2;
+  let mouseY = innerHeight / 2;
+  let baseX  = mouseX;
+  let baseY  = mouseY;
 
-let baseX = mouseX;
-let baseY = mouseY;
+  // Track hover state via JS — catches all :hover elements
+  const hoverSelectors = [
+    ".glowHover",
+    ".glowHoverText",
+    ".username",
+    ".buttonSocialsPacks",
+    ".buttonSocialsDiscord",
+    ".pfpImage",
+  ];
 
-window.addEventListener("mousemove", e => {
+  document.querySelectorAll(hoverSelectors.join(",")).forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      base.classList.add("is-hovering");
+      stick.classList.add("is-hovering");
+    });
+    el.addEventListener("mouseleave", () => {
+      base.classList.remove("is-hovering");
+      stick.classList.remove("is-hovering");
+    });
+  });
+
+  window.addEventListener("mousemove", e => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-});
+  });
 
-function animate() {
-    // smooth base follow
+  function animate() {
     baseX += (mouseX - baseX) * 0.05;
     baseY += (mouseY - baseY) * 0.05;
 
     const dx = mouseX - baseX;
     const dy = mouseY - baseY;
 
-    // 🔥 NO clamp — allow full range + slight exaggeration
     const stretchFactor = 1.3;
-
     const offsetX = dx * stretchFactor;
     const offsetY = dy * stretchFactor;
 
-    base.style.left = baseX + "px";
-    base.style.top = baseY + "px";
+    base.style.left  = baseX + "px";
+    base.style.top   = baseY + "px";
 
     stick.style.left = (baseX + offsetX) + "px";
-    stick.style.top = (baseY + offsetY) + "px";
+    stick.style.top  = (baseY + offsetY) + "px";
 
     requestAnimationFrame(animate);
-}
+  }
 
-animate();
+  animate();
 </script>
 
 </html>
