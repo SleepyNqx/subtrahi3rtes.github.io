@@ -1,396 +1,230 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Portfolio</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon"
-    href="https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/Titelloses%20419_20260520220743.PNG">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>subtrahi3rtes | Minecraft PvPer &amp; Pack Creator</title>
+<meta name="description" content="Minecraft PvPer and texture pack creator. Browse my packs, see my setup and join the Discord.">
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/Titelloses%20419_20260520220743.PNG">
 <style>
-  @font-face {
-    font-family: sfProRegular;
-    src: url("./SFPRODISPLAYREGULAR.OTF");
-  }
+@font-face{font-family:sfProRegular;src:url("./SFPRODISPLAYREGULAR.OTF")}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:sfProRegular,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  margin:0;color:#fff;overflow-x:hidden;min-height:100vh;line-height:1.5;
+  background-color:#0e0e0e;
+  background-image:linear-gradient(to right,#ffffff15 1px,transparent 1px),linear-gradient(to bottom,#ffffff15 1px,transparent 1px);
+  background-size:40px 40px;animation:moveBackground 20s linear infinite;
+}
+@media (hover:hover) and (pointer:fine){body,a,button,summary,input{cursor:none}}
+::selection{background:#ffffff50;color:transparent}
+@keyframes moveBackground{from{background-position:-280px -280px}to{background-position:28px 28px}}
+@keyframes bounce{0%,100%{transform:translateY(0)}25%{transform:translateY(-15px)}50%{transform:translateY(0)}75%{transform:translateY(-8px)}}
+@keyframes pulse{0%{box-shadow:0 0 25px 1px #fff}50%{box-shadow:0 0 0 0 #fff}100%{box-shadow:0 0 25px 1px #fff}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-  * {
-    box-sizing: border-box;
-  }
+.borderSubtle{border:1px solid #50505050}
+.glowHover{box-shadow:transparent 0 0 0;transition:.3s ease}
+.glowHover:hover{box-shadow:#ffffff49 0 0 50px}
+.glowHoverText{filter:drop-shadow(0 0 0 transparent);transition:.3s ease}
+.glowHoverText:hover{filter:drop-shadow(0 0 10px #fff)}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.row{flex-direction:row}
+.pm{margin:0}
 
-  a {
-    cursor: none;
-  }
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:50px 20px 70px}
+.pfpImage{width:96px;height:96px;border-radius:50%;
+  background:url("https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/Titelloses%20419_20260520220743.PNG") center/cover;
+  animation:bounce 3s ease-in-out infinite,pulse 3s ease-in-out infinite}
+.fontGradient{background:linear-gradient(0deg,#575757,#fff);-webkit-text-fill-color:transparent;background-clip:text;-webkit-background-clip:text;font-size:40px;margin:0}
+.usernameContainer{padding:5px;backdrop-filter:blur(5px);background:#57575767;display:inline-flex;align-items:center;border-radius:999px}
+.dot{padding:0 5px;color:#0f0;filter:drop-shadow(0 0 5px #0f0);margin:0}
+.username{background:linear-gradient(0deg,#002658,#6eb9ff);-webkit-text-fill-color:transparent;background-clip:text;-webkit-background-clip:text;text-decoration:none;transition:.8s cubic-bezier(0,.59,.17,1.11);margin:0}
+.username:hover{filter:drop-shadow(0 0 5px #6eb9ff)}
+.grad{background:linear-gradient(0deg,#575757,#fff);-webkit-text-fill-color:transparent;background-clip:text;-webkit-background-clip:text}
+.panel{background:#57575717;backdrop-filter:blur(5px);padding:14px 16px;margin-top:50px;text-align:center}
 
-  body {
-    cursor: none;
-    font-family: sfProRegular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: white;
-    overflow-x: hidden;
-    width: 100%;
-    min-height: 100vh;
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px}
+nav a{padding:6px 14px;border-radius:999px;background:#57575740;text-decoration:none;color:#ccc;font-size:15px;transition:.3s ease}
+nav a:hover,nav a:focus-visible{background:#ffffff25;color:#fff}
 
-    background-color: #0e0e0e;
-    background-image:
-      linear-gradient(to right, #ffffff15 1px, transparent 1px),
-      linear-gradient(to bottom, #ffffff15 1px, transparent 1px);
-    background-size: 40px 40px;
+.btn{display:block;width:100%;padding:25px;border-radius:2px;backdrop-filter:blur(2px);transition:all .3s ease;text-decoration:none}
+.btn:hover,.btn:focus-visible{border-radius:50px}
+.btnPacks{background:linear-gradient(90deg,#7437373c,#ffaaaa0c)}
+.btnDiscord{background:linear-gradient(90deg,#3737743c,#aaaaff0c)}
+.link{text-decoration:none;background:linear-gradient(0deg,#6eadff,#fff);-webkit-text-fill-color:transparent;background-clip:text;-webkit-background-clip:text;font-size:25px}
+.btns{width:100%;display:grid;gap:10px;margin-top:50px}
 
-    animation: moveBackground 20s linear infinite;
-  }
+section{margin-top:70px}
+h2{font-weight:normal;font-size:28px;margin:0 0 18px;text-align:center}
+h2 span{background:linear-gradient(0deg,#575757,#fff);-webkit-text-fill-color:transparent;background-clip:text;-webkit-background-clip:text}
+.lead{color:#c8c8c8;margin:0 auto 20px;text-align:center;max-width:520px}
 
-  ::selection {
-    background: #ffffff50;
-    color: transparent;
-  }
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{padding:16px 8px;background:#57575717;backdrop-filter:blur(5px);text-align:center}
+.stat b{display:block;font-weight:normal;font-size:26px}
+.stat small{color:#aaa}
 
-  @keyframes moveBackground {
-    from { background-position: -280px -280px; }
-    to   { background-position: 28px 28px; }
-  }
+.packs{display:grid;gap:10px}
+.pack{padding:18px;background:#57575717;backdrop-filter:blur(5px);text-align:left}
+.pack h3{margin:0 0 4px;font-weight:normal;font-size:20px}
+.pack p{margin:0 0 10px;color:#bbb;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:13px;padding:2px 10px;border-radius:999px;background:#6eb9ff22;color:#a9d3ff}
 
-  .borderSubtle {
-    border: 1px solid #50505050;
-  }
+.setup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.setup div{padding:14px 16px;background:#57575717;backdrop-filter:blur(5px);text-align:left}
+.setup small{display:block;color:#999}
 
-  .glowHover:hover {
-    box-shadow: #ffffff49 0px 0px 50px;
-    transition: 0.3s ease;
-  }
+details{background:#57575717;backdrop-filter:blur(5px);margin-bottom:8px;padding:0 16px}
+summary{padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:#6eb9ff;transition:transform .3s ease}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 14px;color:#c8c8c8;font-size:15px}
+a:focus-visible,summary:focus-visible{outline:2px solid #6eb9ff;outline-offset:3px}
+footer{margin-top:70px;text-align:center;color:#777;font-size:14px}
 
-  .glowHover {
-    box-shadow: transparent 0px 0px 0px;
-    transition: 0.3s ease;
-  }
+.cursor-base{position:fixed;width:40px;height:40px;border:2px solid #ffffff4d;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);backdrop-filter:blur(2px);z-index:9999;transition:width .2s ease,height .2s ease,border-color .2s ease;left:-100px;top:-100px}
+.cursor-base.is-hovering{width:58px;height:58px;border-color:#ffffff99}
+.cursor-stick{position:fixed;width:16px;height:16px;background:#ffffff6c;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);backdrop-filter:blur(2px);z-index:10000;box-shadow:0 0 20px #ffffff66;left:-100px;top:-100px}
 
-  .glowHoverText:hover {
-    filter: drop-shadow(0px 0px 10px white);
-    transition: 0.3s ease;
-  }
-
-  .glowHoverText {
-    filter: drop-shadow(0px 0px 0px transparent);
-    transition: 0.3s ease;
-  }
-
-  .pfpImage {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background-image: url("https://raw.githubusercontent.com/SleepyNqx/subtrahi3rtes/refs/heads/main/Titelloses%20419_20260520220743.PNG");
-    background-size: cover;
-    background-position: center;
-    top: 0px;
-    animation:
-      bounce 3s ease-in-out infinite,
-      pulse 3s ease-in-out infinite;
-  }
-
-  @keyframes bounce {
-    0%,  100% { transform: translateY(0); }
-    25%        { transform: translateY(-15px); }
-    50%        { transform: translateY(0); }
-    75%        { transform: translateY(-8px); }
-  }
-
-  .center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    place-items: center;
-    text-align: center;
-  }
-
-  .gap {
-    padding-top: 50px;
-  }
-
-  .fontGradient {
-    background: linear-gradient(0deg, #575757, white);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    font-size: 40px;
-  }
-
-  .paragraphfix {
-    display: block;
-    margin-block-start: 0px;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    unicode-bidi: isolate;
-  }
-
-  .usernameContainer {
-    padding: 5px;
-    backdrop-filter: blur(5px);
-    background: #57575767;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    place-items: center;
-    border-radius: 999px;
-  }
-
-  .username {
-    background: linear-gradient(0deg, #002658, #6eb9ff);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-decoration: none;
-    transition: 0.8s cubic-bezier(0,.59,.17,1.11);
-  }
-
-  .username:hover {
-    transition: 0.8s cubic-bezier(0,.59,.17,1.11);
-    filter: drop-shadow(0px 0px 5px #6eb9ff);
-    background: linear-gradient(0deg, #002658, #6eb9ff);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-decoration: none;
-  }
-
-  .row {
-    flex-direction: row;
-  }
-
-  .dot {
-    padding-right: 5px;
-    padding-left: 5px;
-    color: #00ff00;
-    filter: drop-shadow(#00ff00 0px 0px 5px);
-  }
-
-  .biography {
-    background: #57575717;
-    backdrop-filter: blur(5px);
-  }
-
-  .padding {
-    padding: 7px;
-  }
-
-  .subtrahi3rtes {
-    background: linear-gradient(0deg, #575757, white);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
-
-  /* Cursor base */
-  .cursor-base {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(2px);
-    z-index: 9999;
-    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-  }
-
-  .cursor-base.is-hovering {
-    width: 58px;
-    height: 58px;
-    border-color: rgba(255, 255, 255, 0.6);
-  }
-
-  @keyframes pulse {
-    0%   { box-shadow: 0 0 25px 1px #ffffff; }
-    50%  { box-shadow: 0 0 0   0  #ffffff; }
-    100% { box-shadow: 0 0 25px 1px #ffffff; }
-  }
-
-  /* Cursor stick */
-  .cursor-stick {
-    position: fixed;
-    width: 16px;
-    height: 16px;
-    background: rgba(255, 255, 255, 0.425);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(2px);
-    z-index: 10000;
-    box-shadow: 0 0 20px rgba(255, 255, 255, .4);
-    transition: width 0.2s ease, height 0.2s ease;
-  }
-
-  .cursor-stick.is-hovering {
-    width: 16px;
-    height: 16px;
-  }
-
-  .buttonSocialsPacks {
-    background: linear-gradient(90deg, #7437373c, #ffaaaa0c);
-    padding: 10px;
-    border-radius: 2px;
-    backdrop-filter: blur(2px);
-    transition: 0.3s ease;
-  }
-
-  .buttonSocialsPacks:hover {
-    transition: 0.3s ease;
-    border-radius: 50px;
-  }
-
-  .buttonSocialsDiscord {
-    background: linear-gradient(90deg, #3737743c, #aaaaff0c);
-    padding: 10px;
-    border-radius: 2px;
-    backdrop-filter: blur(2px);
-    transition: all 0.3s ease;
-  }
-
-  .buttonSocialsDiscord:hover {
-    transition: all 0.3s ease;
-    border-radius: 50px;
-  }
-
-  .paddingTop  { padding-top: 50px; }
-  .paddingTop3 { padding-top: 10px; }
-
-  .link {
-    text-decoration: none;
-    background: linear-gradient(0deg, #6eadff, #ffffff);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 25px;
-    -webkit-background-clip: text;
-  }
-
-  .paddingBigger { padding: 25px; }
-
-  .paddingTop2 {
-    width: 100%;
-    max-width: 600px;
-  }
-
-  .stretch { width: 100%; }
-
-  .row2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .start { align-items: start; }
+.audioBtn{position:fixed;right:16px;bottom:16px;z-index:10001;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:#57575767;backdrop-filter:blur(5px);color:#fff;font:inherit;font-size:15px;border:1px solid #50505050;transition:.3s ease}
+.audioBtn:hover{box-shadow:#ffffff49 0 0 30px}
+.audioBtn[disabled]{opacity:.5}
+.audioBtn .bars{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.audioBtn .bars i{width:3px;height:4px;background:#6eb9ff;border-radius:2px}
+.audioBtn.playing .bars i{animation:eq .9s ease-in-out infinite}
+.audioBtn.playing .bars i:nth-child(2){animation-delay:.2s}
+.audioBtn.playing .bars i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+#vol{width:70px;accent-color:#6eb9ff}
+@media (hover:none),(pointer:coarse){.cursor-base,.cursor-stick{display:none}}
+@media (max-width:480px){.setup{grid-template-columns:1fr}.stat b{font-size:22px}}
 </style>
-
+</head>
 <body>
-  <div class="cursor-base"></div>
-  <div class="cursor-stick"></div>
-  <div class="gap">
-    <div class="center">
-      <div class="pfpImage glowHover borderSubtle"></div>
-      <div>
-        <p class="fontGradient glowHoverText paragraphfix">subtrahi3rtes</p>
-        <div class="usernameContainer center borderSubtle glowHover row">
-          <p class="paragraphfix dot">•</p>
-          <p class="paragraphfix username center">@w.sub</p>
-        </div>
-      </div>
-      <div class="gap paragraphfix">
-        <div class="borderSubtle">
-          <div class="paragraphfix biography padding">
-            <span class="subtrahi3rtes">hello! im and im a minecraft pvper and "pack creator".
-              <br>I make (most) of my texture packs i use myself. If you want to use
-              <br>these packs check out my pack page
-              <br>on
-              <a href="https://www.subtrahi3rtes.xyz/packs.html" class="username">packs.subtrahi3rtes.xyz</a>
-            </span>
-          </div>
-        </div>
-      </div>
+<div class="cursor-base"></div>
+<div class="cursor-stick"></div>
 
-      <div class="paddingTop paddingTop2">
-        <div class="buttonSocialsPacks glowHover borderSubtle paddingBigger stretch">
-          <div>
-            <a href="https://www.subtrahi3rtes.xyz/pack.html" class="link">Packs</a>
-          </div>
-        </div>
-      </div>
+<audio id="bgm" src="./music.mp3" loop preload="none"></audio>
+<div class="audioBtn" id="audioWrap">
+  <button id="audioToggle" class="audioBtn" style="position:static;padding:0;border:0;background:none;box-shadow:none;backdrop-filter:none" aria-pressed="false" aria-label="Play music">
+    <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="audioLabel">Play music</span>
+  </button>
+  <input id="vol" type="range" min="0" max="1" step="0.05" value="0.4" aria-label="Volume">
+</div>
 
-      <div class="paddingTop2 paddingTop3">
-        <div class="buttonSocialsDiscord glowHover borderSubtle paddingBigger stretch row2">
-          <div class="start"></div>
-          <div>
-            <a href="https://www.subtrahi3rtes.xyz/discord.html" class="link">Discord</a>
-          </div>
-        </div>
-      </div>
-
+<main class="wrap">
+  <header class="center">
+    <div class="pfpImage glowHover borderSubtle"></div>
+    <p class="fontGradient glowHoverText">subtrahi3rtes</p>
+    <div class="usernameContainer borderSubtle glowHover">
+      <p class="dot">•</p><p class="username">@w.sub</p>
     </div>
-  </div>
-</body>
+
+    <div class="borderSubtle panel">
+      <span class="grad">hello! i'm sub, a Minecraft PvPer and "pack creator".
+        I make most of the texture packs I use myself. If you want to use them, check out my pack page on
+        <a href="https://www.subtrahi3rtes.xyz/packs.html" class="username">packs.subtrahi3rtes.xyz</a></span>
+    </div>
+
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#packs">Packs</a><a href="#setup">Setup</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    </nav>
+
+    <div class="btns">
+      <a href="https://www.subtrahi3rtes.xyz/packs.html" class="btn btnPacks glowHover borderSubtle"><span class="link">Packs</span></a>
+      <a href="https://discord.gg/W4Cp3VC7kq" target="_blank" rel="noopener" class="btn btnDiscord glowHover borderSubtle"><span class="link">Discord</span></a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2><span>About me</span></h2>
+    <p class="lead">I play PvP and tweak my own visuals until they feel right: clean fire, low shields, clear hit feedback. Packs started as personal edits that I later decided to share.</p>
+    <div class="stats">
+      <div class="stat borderSubtle"><b>PvP</b><small>main focus</small></div>
+      <div class="stat borderSubtle"><b>Packs</b><small>made by hand</small></div>
+      <div class="stat borderSubtle"><b>Free</b><small>to download</small></div>
+    </div>
+  </section>
+
+  <section id="packs">
+    <h2><span>Packs</span></h2>
+    <p class="lead">No packs are featured yet. Once I pick the first ones, they will show up here.</p>
+    <div class="packs">
+      <article class="pack borderSubtle glowHover center">
+        <h3>Nothing featured yet</h3>
+        <p>Check the packs page or join the Discord to see what I am working on.</p>
+      </article>
+    </div>
+    <div class="btns" style="margin-top:14px"><a href="https://www.subtrahi3rtes.xyz/packs.html" class="btn btnPacks glowHover borderSubtle"><span class="link" style="font-size:20px">Open the packs page</span></a></div>
+  </section>
+
+  <section id="setup">
+    <h2><span>My setup</span></h2>
+    <div class="setup">
+      <div class="borderSubtle"><small>Game</small>Minecraft Java</div>
+      <div class="borderSubtle"><small>Focus</small>PvP and texture packs</div>
+      <div class="borderSubtle"><small>Pack style</small>Minimal, high visibility</div>
+      <div class="borderSubtle"><small>Tools</small>Image editor, pack zipper</div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2><span>FAQ</span></h2>
+    <details><summary>Are the packs free?</summary><p>Yes. Download them from the packs page and drop the zip into your resourcepacks folder.</p></details>
+    <details><summary>Which versions do they work on?</summary><p>Each pack lists its supported versions on its page. Most PvP packs target 1.8 and newer.</p></details>
+    <details><summary>Can I use them in videos or edit them?</summary><p>You can use them in videos. Please credit me, and ask on Discord before re-uploading or editing a pack.</p></details>
+    <details><summary>Can you make a custom pack?</summary><p>Only if it is paid for and I am interested in the theme. Message me on Discord <b>@w.sub</b> with your idea and budget.</p></details>
+    <details><summary>Do your packs include other people's work?</summary><p>They may. If you made something in one of my packs and want it removed, message me on Discord <b>@w.sub</b> and I will take the pack down.</p></details>
+  </section>
+
+  <section id="contact">
+    <h2><span>Get in touch</span></h2>
+    <p class="lead">Questions, pack requests or bug reports? Join the Discord or message me directly.</p>
+    <div class="btns" style="margin-top:0">
+      <a href="https://discord.gg/W4Cp3VC7kq" target="_blank" rel="noopener" class="btn btnDiscord glowHover borderSubtle center"><span class="link">Join the Discord</span></a>
+    </div>
+  </section>
+
+  <footer>© 2026 subtrahi3rtes. Some packs may include work by other creators. Removal requests: Discord @w.sub. Not affiliated with Mojang or Microsoft.</footer>
+</main>
 
 <script>
-  const base  = document.querySelector(".cursor-base");
-  const stick = document.querySelector(".cursor-stick");
-
-  let mouseX = innerWidth  / 2;
-  let mouseY = innerHeight / 2;
-  let baseX  = mouseX;
-  let baseY  = mouseY;
-
-  // Track hover state via JS — catches all :hover elements
-  const hoverSelectors = [
-    ".glowHover",
-    ".glowHoverText",
-    ".username",
-    ".buttonSocialsPacks",
-    ".buttonSocialsDiscord",
-    ".pfpImage",
-  ];
-
-  document.querySelectorAll(hoverSelectors.join(",")).forEach(el => {
-    el.addEventListener("mouseenter", () => {
-      base.classList.add("is-hovering");
-      stick.classList.add("is-hovering");
-    });
-    el.addEventListener("mouseleave", () => {
-      base.classList.remove("is-hovering");
-      stick.classList.remove("is-hovering");
-    });
+(function(){
+  var base=document.querySelector(".cursor-base"),stick=document.querySelector(".cursor-stick");
+  var mx=innerWidth/2,my=innerHeight/2,bx=mx,by=my;
+  document.querySelectorAll(".glowHover,.glowHoverText,.username,.btn,.pfpImage,nav a,summary").forEach(function(el){
+    el.addEventListener("mouseenter",function(){base.classList.add("is-hovering")});
+    el.addEventListener("mouseleave",function(){base.classList.remove("is-hovering")});
   });
+  addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY});
+  (function loop(){
+    bx+=(mx-bx)*0.05;by+=(my-by)*0.05;
+    base.style.left=bx+"px";base.style.top=by+"px";
+    stick.style.left=(bx+(mx-bx)*1.3)+"px";stick.style.top=(by+(my-by)*1.3)+"px";
+    requestAnimationFrame(loop);
+  })();
+})();
 
-  window.addEventListener("mousemove", e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+(function(){
+  var a=document.getElementById("bgm"),b=document.getElementById("audioToggle"),w=document.getElementById("audioWrap"),
+      l=document.getElementById("audioLabel"),v=document.getElementById("vol");
+  a.volume=0.4;
+  function set(on){w.classList.toggle("playing",on);b.setAttribute("aria-pressed",on);l.textContent=on?"Pause music":"Play music"}
+  b.addEventListener("click",function(){
+    if(a.paused){a.play().then(function(){set(true)}).catch(function(){l.textContent="Audio unavailable"})}
+    else{a.pause();set(false)}
   });
-
-  function animate() {
-    baseX += (mouseX - baseX) * 0.05;
-    baseY += (mouseY - baseY) * 0.05;
-
-    const dx = mouseX - baseX;
-    const dy = mouseY - baseY;
-
-    const stretchFactor = 1.3;
-    const offsetX = dx * stretchFactor;
-    const offsetY = dy * stretchFactor;
-
-    base.style.left  = baseX + "px";
-    base.style.top   = baseY + "px";
-
-    stick.style.left = (baseX + offsetX) + "px";
-    stick.style.top  = (baseY + offsetY) + "px";
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
+  v.addEventListener("input",function(){a.volume=v.value});
+  a.addEventListener("error",function(){l.textContent="Audio file missing";b.disabled=true});
+  document.querySelectorAll("#audioWrap,#vol,#audioToggle").forEach(function(el){
+    el.addEventListener("mouseenter",function(){document.querySelector(".cursor-base").classList.add("is-hovering")});
+    el.addEventListener("mouseleave",function(){document.querySelector(".cursor-base").classList.remove("is-hovering")});
+  });
+})();
 </script>
-
+</body>
 </html>
